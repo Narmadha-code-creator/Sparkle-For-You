@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A Special Diwali Surprise 🪔</title>
+<meta name="theme-color" content="#240B45">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* THEME COLORS: edit here */
+:root{--rp:#381064;--dp:#240B45;--vi:#7927A6;--pk:#F15B85;--sa:#FF8C38;--go:#FFC857;--tq:#16B8A6;--cr:#FFF3DE;--bg:#170927;--gx:linear-gradient(135deg,#FFC857,#FF8C38);--sat:env(safe-area-inset-top,0px);--sab:env(safe-area-inset-bottom,0px);--sal:env(safe-area-inset-left,0px);--sar:env(safe-area-inset-right,0px)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:Poppins,system-ui,sans-serif;background:var(--bg);color:var(--cr);overflow-x:hidden;line-height:1.6}
+section{position:relative;overflow:hidden;text-align:center;padding:clamp(56px,10vw,96px) max(18px,var(--sar)) clamp(56px,10vw,96px) max(18px,var(--sal))}
+.w{position:relative;z-index:2;max-width:720px;margin:auto}
+h1,h2,h3{font-family:'Cinzel Decorative',serif;font-weight:700;line-height:1.25}
+h2{font-size:clamp(1.45rem,6vw,2.4rem);color:var(--go);margin-bottom:.5rem}
+.sub{opacity:.88;margin-bottom:1.6rem;font-size:clamp(.95rem,3.6vw,1.1rem)}
+button{font-family:inherit;cursor:pointer}
+.btn{min-height:48px;padding:12px 26px;border:0;border-radius:99px;background:var(--gx);color:var(--dp);font-weight:600;font-size:.95rem;letter-spacing:.05em;box-shadow:0 6px 18px #0006;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 10px 24px #0007}
+.btn.alt{background:transparent;color:var(--go);border:2px solid var(--go)}
+button:focus-visible{outline:3px solid var(--tq);outline-offset:3px}
+.card{background:var(--cr);color:var(--dp);border:2px solid var(--go);border-radius:22px;padding:clamp(20px,5vw,36px);box-shadow:0 12px 30px #0006,inset 0 0 0 5px var(--cr),inset 0 0 0 6px #ffc85788}
+.divd{font-size:1.1rem;letter-spacing:.6em;color:var(--go);padding:6px 0;background:var(--bg);text-align:center;overflow:hidden;white-space:nowrap}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .8s,transform .8s}.rv.in{opacity:1;transform:none}
+/* fixed controls */
+.fab{position:fixed;top:calc(var(--sat) + 10px);z-index:60;width:46px;height:46px;border-radius:50%;border:2px solid var(--go);background:#240b45cc;color:var(--go);font-size:1.2rem;display:grid;place-items:center}
+#snd{right:calc(var(--sar) + 10px)}#shr{left:calc(var(--sal) + 10px)}
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:80}
+#toast{position:fixed;left:50%;bottom:calc(var(--sab) + 24px);transform:translate(-50%,30px);max-width:90vw;background:var(--cr);color:var(--dp);border:2px solid var(--go);padding:12px 20px;border-radius:16px;font-weight:500;opacity:0;pointer-events:none;transition:.4s;z-index:90;text-align:center}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+/* diya + flame */
+.diya{display:inline-block;position:relative;width:3em;height:1.3em;font-size:var(--s,18px);background:linear-gradient(#ffd36e,#e8741a);border-radius:.2em .2em 1.5em 1.5em/.2em .2em 1.3em 1.3em;margin-top:1.6em;box-shadow:0 0 1.5em #ff8c3877}
+.diya::before{content:"";position:absolute;left:50%;top:-1.5em;width:.7em;height:1.5em;margin-left:-.35em;background:radial-gradient(ellipse at 50% 75%,#fff6c0 0 25%,#ffc857 45%,#ff8c38 75%,transparent 77%);border-radius:50% 50% 50% 50%/65% 65% 35% 35%;transform-origin:50% 100%;animation:fk 1.1s ease-in-out infinite alternate}
+@keyframes fk{from{transform:scale(1,.92) rotate(-3deg)}to{transform:scale(.92,1.08) rotate(3deg)}}
+/* HERO */
+#hero{min-height:100svh;display:flex;align-items:center;padding-top:calc(var(--sat) + 90px);background:radial-gradient(circle at 50% 0,var(--vi),var(--rp) 45%,var(--dp))}
+.ring{width:min(58vw,230px);aspect-ratio:1;margin:0 auto 22px;border-radius:50%;background:radial-gradient(circle,var(--go) 0 7%,var(--dp) 8% 12%,transparent 13%),repeating-conic-gradient(var(--pk) 0 12deg,var(--sa) 12deg 24deg,var(--tq) 24deg 36deg,var(--go) 36deg 48deg);-webkit-mask:radial-gradient(circle,#000 0 24%,transparent 25% 31%,#000 32% 62%,transparent 63% 68%,#000 69% 100%);mask:radial-gradient(circle,#000 0 24%,transparent 25% 31%,#000 32% 62%,transparent 63% 68%,#000 69% 100%);animation:spin 40s linear infinite;filter:drop-shadow(0 0 14px #ffc85766)}
+@keyframes spin{to{transform:rotate(360deg)}}
+#hero h1{font-size:clamp(1.9rem,9vw,4rem);color:var(--go);text-shadow:0 3px 18px #ff8c3899;margin-bottom:14px}
+#hero .tag{font-size:clamp(1rem,4.2vw,1.3rem);margin-bottom:8px}
+#hero .sup{opacity:.85;margin-bottom:28px}
+.row{display:flex;justify-content:center;gap:clamp(14px,5vw,34px);margin-top:36px}
+.lan{position:absolute;top:0;width:34px;height:50px;margin-top:80px;transform-origin:50% -80px;animation:sw 4s ease-in-out infinite alternate;background:linear-gradient(var(--pk),var(--sa));border:solid var(--go);border-width:5px 0;border-radius:12px 12px 16px 16px;box-shadow:0 0 22px #ff8c38aa;z-index:1}
+.lan::before{content:"";position:absolute;left:50%;top:-85px;width:2px;height:80px;background:var(--go)}
+@keyframes sw{from{transform:rotate(-6deg)}to{transform:rotate(6deg)}}
+.pt,.st{position:absolute;z-index:0;pointer-events:none}
+.pt{top:-30px;animation:fall linear infinite;opacity:.8}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+.st{color:var(--go);animation:tw 3s ease-in-out infinite}
+@keyframes tw{50%{opacity:.2;transform:scale(.6)}}
+#egg1{position:absolute;top:calc(var(--sat) + 100px);right:12%;z-index:3;background:none;border:0;font-size:1.7rem;min-width:44px;min-height:44px;filter:drop-shadow(0 0 10px var(--go));animation:tw 2.4s infinite}
+/* WISHES */
+#wishes{background:linear-gradient(var(--dp),var(--rp))}
+#qt{font-size:clamp(1.1rem,4.8vw,1.55rem);font-family:'Cinzel Decorative',serif;min-height:6.5em;display:grid;place-items:center;transition:opacity .35s}
+#qt.out{opacity:0}
+.qb{display:flex;gap:12px;justify-content:center;align-items:center;margin-top:18px;flex-wrap:wrap}
+#qn{font-size:.85rem;opacity:.7}
+#egg3{background:none;border:0;min-width:56px;min-height:56px;--s:14px}
+#egg2{position:absolute;right:8%;bottom:14%;z-index:3;background:none;border:0;font-size:1.8rem;min-width:44px;min-height:44px;animation:fl 4s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-14px)}}
+/* FIREWORKS */
+#fire{background:linear-gradient(#0f0620,var(--dp))}
+.stage{position:relative;height:clamp(260px,48vh,380px);border-radius:22px;border:2px solid var(--go);background:radial-gradient(ellipse at 50% 120%,#7927a666,#0b0418 70%);overflow:hidden}
+#fw{position:absolute;inset:0;width:100%;height:100%;touch-action:manipulation}
+#fmsg{position:absolute;left:0;right:0;bottom:10px;color:var(--go);font-weight:500;pointer-events:none;min-height:1.6em}
+#fin{position:absolute;inset:0;display:grid;place-items:center;padding:20px;font-family:'Cinzel Decorative',serif;font-size:clamp(1.1rem,5vw,1.7rem);color:var(--go);text-shadow:0 0 18px #000;opacity:0;pointer-events:none;transition:opacity .6s}
+#fin.on{opacity:1}
+.crk{display:flex;justify-content:center;gap:10px;margin:18px 0 10px}
+.crk button{width:56px;height:56px;border-radius:50%;border:2px solid var(--go);background:#ffffff14;font-size:1.6rem;transition:transform .2s}
+.crk button:hover{transform:scale(1.12) rotate(-6deg)}
+#cnt{font-weight:600;color:var(--go);margin-bottom:14px}
+/* GIFT */
+#gift{background:linear-gradient(var(--rp),var(--dp))}
+.gift{position:relative;width:150px;height:150px;margin:36px auto 20px;animation:fl 3.4s ease-in-out infinite;filter:drop-shadow(0 0 22px #b66bff88)}
+.gb,.gl{position:absolute;left:0;right:0;background:linear-gradient(var(--go),var(--go)) center/26px 100% no-repeat,linear-gradient(135deg,#9a3fd0,var(--rp));border-radius:8px}
+.gb{bottom:0;height:98px;box-shadow:0 18px 20px -8px #000a}
+.gl{bottom:92px;height:44px;left:-7px;right:-7px;transition:transform .7s,opacity .7s}
+.gl::before{content:"";position:absolute;left:50%;top:-26px;width:64px;height:32px;margin-left:-32px;background:radial-gradient(circle at 24% 55%,transparent 0 6px,var(--go) 7px 15px,transparent 16px),radial-gradient(circle at 76% 55%,transparent 0 6px,var(--go) 7px 15px,transparent 16px)}
+.gl::after{content:"";position:absolute;left:50%;top:-14px;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:var(--sa)}
+.gift.open .gl{transform:translateY(-70px) rotate(-16deg);opacity:0}
+.gift.open{animation:none}
+#mod{position:fixed;inset:0;z-index:70;background:#170927dd;display:grid;place-items:center;padding:max(18px,var(--sat)) max(18px,var(--sar)) max(18px,var(--sab)) max(18px,var(--sal))}
+#mod[hidden]{display:none}
+#mc{width:min(100%,460px);max-height:100%;overflow:auto;border-color:var(--ac,var(--go));text-align:center;animation:pop .45s}
+@keyframes pop{from{transform:scale(.8);opacity:0}}
+#mp{font-size:.8rem;font-weight:600;letter-spacing:.12em;color:var(--ac);filter:brightness(.7);text-transform:uppercase}
+#mt{font-size:clamp(1.05rem,4.6vw,1.35rem);margin:8px 0}
+#mx{font-size:clamp(1rem,4vw,1.15rem);margin-bottom:18px}
+.dots{display:flex;gap:6px;justify-content:center;margin:12px 0}.dots i{width:10px;height:10px;border-radius:50%;background:#0002}.dots i.on{background:var(--ac)}
+.mb{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.mb .alt{color:var(--rp);border-color:var(--rp)}
+/* LETTER */
+#letter{background:linear-gradient(var(--dp),#4a1a80)}
+.env{position:relative;width:min(84vw,300px);height:190px;margin:10px auto 26px;background:#d63d68;border-radius:8px;box-shadow:0 14px 28px #0007}
+.env::before{content:"";position:absolute;inset:0;border-radius:8px;background:linear-gradient(135deg,transparent 49.5%,#b72f58 50%) left/50% 100% no-repeat,linear-gradient(225deg,transparent 49.5%,#b72f58 50%) right/50% 100% no-repeat}
+.flap{position:absolute;left:0;right:0;top:0;height:112px;background:var(--pk);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .7s,z-index .7s;z-index:3}
+.seal{position:absolute;left:50%;top:84px;transform:translateX(-50%);z-index:4;width:34px;height:34px;border-radius:50%;background:var(--gx);display:grid;place-items:center;color:var(--rp);transition:opacity .4s}
+.env.open .flap{transform:rotateX(180deg);z-index:0}.env.open .seal{opacity:0}
+#paper{text-align:left;white-space:pre-wrap;font-size:clamp(.95rem,3.8vw,1.1rem);display:none;animation:pop .6s}
+/* FINAL */
+#final{background:radial-gradient(circle at 50% 30%,var(--vi),var(--rp) 50%,var(--dp));padding-bottom:calc(var(--sab) + 80px)}
+.f{opacity:0;transform:translateY(16px);transition:opacity 1s,transform 1s;margin-bottom:22px;font-size:clamp(1rem,4.2vw,1.25rem)}.f.in{opacity:1;transform:none}
+.sig{font-size:clamp(1.15rem,5.6vw,2.4rem);color:var(--cr)}
+.gold{background:var(--gx);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 10px #ffc85877)}
+.f.in .sig .gold{animation:wr 2.4s steps(24) both}
+@keyframes wr{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0)}}
+.hrt{display:inline-block;color:var(--pk);text-shadow:0 0 16px var(--go);font-size:1.6rem;animation:hb 1.4s infinite}
+@keyframes hb{50%{transform:scale(1.25)}}
+.big{font-family:'Cinzel Decorative',serif;color:var(--go);font-size:clamp(1.2rem,5.4vw,1.9rem)}
+#thou{background:radial-gradient(circle at 50% 0,#a8307a44,transparent 65%),linear-gradient(var(--rp),var(--dp))}
+.bigh{background:none;border:0;min-width:44px;min-height:44px;font-size:clamp(5rem,26vw,8.5rem);line-height:1;color:var(--pk);text-shadow:0 0 30px #f15b8599;animation:hb 1.8s infinite}
+.msgs{display:grid;gap:12px;margin-top:18px;text-align:left}
+.msgs .card{padding:16px 20px;font-size:clamp(.95rem,3.8vw,1.08rem);border-left:6px solid var(--pk);animation:pop .5s}
+.ph{position:fixed;bottom:-30px;z-index:1;pointer-events:none;color:var(--pk);opacity:.25;animation:rs linear infinite}
+@keyframes rs{to{transform:translate(24px,-115vh) rotate(20deg)}}
+.sh{position:fixed;bottom:-50px;z-index:65;background:none;border:0;font-size:1.8rem;min-width:44px;min-height:44px;animation:sr 9s linear forwards}
+@keyframes sr{to{transform:translate(18px,-120vh)}}
+.last{max-width:34em;margin-inline:auto;padding:18px 6px;border-top:1px solid #ffc85766;border-bottom:1px solid #ffc85766}
+@media (prefers-reduced-motion:reduce){.ph,.sh{display:none}*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<button class="fab" id="shr" aria-label="Share this surprise">🔗</button>
+<button class="fab" id="snd" aria-label="Turn sound on" aria-pressed="false">🔇</button>
+<canvas id="fx" aria-hidden="true"></canvas>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<header>
+<section id="hero">
+  <div class="lan" style="left:7%"></div><div class="lan" style="left:50%;margin-left:-17px;margin-top:40px"></div><div class="lan" style="right:7%"></div>
+  <div id="sky" aria-hidden="true"></div>
+  <button id="egg1" aria-label="A glowing star">⭐</button>
+  <div class="w">
+    <div class="ring" aria-hidden="true"></div>
+    <h1>🪔 Happy Diwali, Gokul! ✨</h1>
+    <p class="tag">Some celebrations are special, but some people make them even more special.</p>
+    <p class="sup">A little happiness, a little magic, and a surprise made just for you.</p>
+    <button class="btn" id="go">DISCOVER YOUR SURPRISE ✨</button>
+    <div class="row" aria-hidden="true"><i class="diya"></i><i class="diya" style="--s:22px"></i><i class="diya"></i></div>
+  </div>
+</section>
+</header>
+<div class="divd" aria-hidden="true">🪔 ✦ ❀ ✦ 🪔 ✦ ❀ ✦ 🪔</div>
+
+<main>
+<section id="wishes">
+  <button id="egg2" aria-label="A floating heart">❤️</button>
+  <div class="w rv">
+    <h2>A Little Happiness for You 💜</h2>
+    <p class="sub">Little wishes, just for you.</p>
+    <div class="card" id="qcard">
+      <button id="egg3" aria-label="A decorative diya"><i class="diya"></i></button>
+      <p id="qt" aria-live="polite"></p>
+      <div class="qb"><button class="btn" id="nw">NEXT WISH 💫</button><span id="qn"></span></div>
+    </div>
+  </div>
+</section>
+<div class="divd" aria-hidden="true">❀ ✦ 🪔 ✦ ❀ ✦ 🪔 ✦ ❀</div>
+
+<section id="thou">
+  <div class="w rv">
+    <h2>A Thousand Hearts, One Special Person ❤️</h2>
+    <p class="sub" id="hc">Tap the heart, Gokul. There are a few things I wanted you to know.</p>
+    <button class="bigh" id="bh" aria-label="Reveal a heartfelt message">♥</button>
+    <div class="msgs" id="msgs" aria-live="polite"></div>
+  </div>
+</section>
+<div class="divd" aria-hidden="true">🪔 ✦ ❀ ✦ 🪔 ✦ ❀ ✦ 🪔</div>
+
+<section id="fire">
+  <div class="w rv">
+    <h2>Let's Light Up the Sky! 🎆</h2>
+    <p class="sub">Your happiness deserves its own fireworks!</p>
+    <div class="stage"><canvas id="fw" aria-label="Tap the sky for fireworks"></canvas><div id="fin" aria-live="polite"></div><div id="fmsg"></div></div>
+    <div class="crk" role="group" aria-label="Crackers">
+      <button data-k="0" aria-label="Golden burst">🧨</button><button data-k="1" aria-label="Starburst">🎇</button><button data-k="2" aria-label="Heart firework">🎆</button><button data-k="3" aria-label="Spiral firework">✨</button><button data-k="4" aria-label="Golden rain">🪔</button>
+    </div>
+    <p id="cnt">Happy Moments Created: 0</p>
+    <button class="btn" id="fin-btn">GRAND FINALE 🎆</button>
+  </div>
+</section>
+<div class="divd" aria-hidden="true">🪔 ✦ ❀ ✦ 🪔 ✦ ❀ ✦ 🪔</div>
+
+<section id="gift">
+  <div class="w rv">
+    <h2>A Little Surprise Is Waiting! 🎁</h2>
+    <p class="sub">Because you deserve something special.</p>
+    <div class="gift" id="gbox" aria-hidden="true"><div class="gb"></div><div class="gl"></div></div>
+    <button class="btn" id="og">OPEN YOUR GIFT 🎁</button>
+  </div>
+</section>
+<div id="mod" hidden>
+  <div class="card" id="mc" role="dialog" aria-modal="true" aria-labelledby="mt">
+    <p id="mp"></p><h3 id="mt"></h3><p id="mx"></p>
+    <div class="dots" id="md" aria-hidden="true"></div>
+    <div class="mb"><button class="btn" id="mn">NEXT SURPRISE ➜</button><button class="btn alt" id="mcl">CLOSE ✕</button></div>
+  </div>
+</div>
+<div class="divd" aria-hidden="true">❀ ✦ 🪔 ✦ ❀ ✦ 🪔 ✦ ❀</div>
+
+<section id="letter">
+  <div class="w rv">
+    <h2>A Little Message From Me ❤️</h2>
+    <p class="sub">Something written just for you.</p>
+    <div class="env" id="env" aria-hidden="true"><div class="flap"></div><div class="seal">♥</div></div>
+    <button class="btn" id="ol">OPEN MY LETTER 💌</button>
+    <div class="card" id="paper" aria-live="off" style="margin-top:26px"></div>
+  </div>
+</section>
+<div class="divd" aria-hidden="true">🪔 ✦ ❀ ✦ 🪔 ✦ ❀ ✦ 🪔</div>
+
+<section id="final">
+  <div class="w">
+    <p class="f">Every little surprise on this page was created especially for you, Gokul. ❤️</p>
+    <p class="f">Some gifts are bought, but some are made with time, creativity and a little bit of love.</p>
+    <p class="f last" data-w="3200">One last thing, Gokul...<br>This entire little world of lights, colors and surprises was created with one simple wish — to make you smile. I hope you always know how special you are. ❤️</p>
+    <p class="f">With love and lots of wishes,</p>
+    <div class="f"><span class="hrt" aria-hidden="true">♥</span><h3 class="sig"><span class="gold" id="sg"></span> 💗</h3></div>
+    <div class="f"><i class="diya" style="--s:20px" aria-hidden="true"></i></div>
+    <p class="f big">May your life shine brighter than a thousand diyas.</p>
+    <p class="f big">Happy Diwali, Gokul! 🪔✨</p>
+    <p class="f" id="cr"></p>
+  </div>
+</section>
+</main>
+
+<script>
+/* ===== EDIT YOUR CONTENT HERE ===== */
+const CONFIG={SENDER:"Narmadha S D",SHARE:"A special Diwali surprise made for you 🪔✨"};
+const LETTER=`Dear Gokul,
+
+This Diwali, I wanted to create something a little different for you.
+
+Not just another greeting or a simple wish, but a little collection of lights, colors, happiness and surprises made especially for you.
+
+May your life always be filled with beautiful opportunities, genuine smiles, unforgettable memories and the courage to achieve everything you dream of.
+
+Keep smiling, keep growing and never stop being yourself.
+
+I hope this little surprise brings a smile to your face.
+
+Wishing you a wonderful and magical Diwali!
+
+With lots of wishes,
+❤️`;
+const QUOTES=["Gokul, may your life shine brighter than a thousand diyas.","May every dream you have find its way into reality.","Keep smiling, because your happiness makes moments brighter.","You deserve all the beautiful things life has to offer.","May success follow your hard work and happiness follow your heart.","Never stop believing in the amazing person you are.","May every new beginning bring you endless opportunities.","Keep growing, keep shining, and keep being yourself.","May your journey be filled with unforgettable memories.","Gokul, let your dreams be bigger than your fears.","May this Diwali bring you countless reasons to smile.","Your brightest days are still waiting ahead.",
+"Gokul, you make ordinary days feel a little brighter without even trying.","Some people are easy to be grateful for, and you are one of them.","Your smile has a way of making everything around you feel lighter.","Gokul, I hope someone reminds you every day how much you matter.","May your heart always feel as full as it makes others feel.","You carry a kindness that people remember long after the moment has passed.","Gokul, the world is warmer with you in it.","I hope this Diwali wraps you in warmth, light and everything you quietly wish for.","Some people simply feel like home. You have that rare kind of presence.","Whatever you dream of this year, I hope it finds you gently and stays.","Gokul, you deserve love that is patient, loyal and full of laughter.","Your happiness matters more than you know.","A heart as good as yours deserves a year full of good things.","On a night of a thousand lights, I'm wishing yours is the brightest.","Thank you for being someone who makes the world feel a little kinder.","Gokul, may you always feel as special as you truly are."];
+const SURPRISES=[
+{t:"A Festive Wish",x:"Gokul, wishing you a Diwali filled with happiness, peace and beautiful beginnings.",c:"#FFC857"},
+{t:"A Little Appreciation",x:"Some people make ordinary moments memorable. Never underestimate the positivity you bring.",c:"#F15B85"},
+{t:"Motivation",x:"Dream big, work hard, stay confident and never let temporary challenges stop you.",c:"#16B8A6"},
+{t:"Happiness",x:"May your life be filled with genuine smiles, exciting opportunities and unforgettable memories.",c:"#FF8C38"},
+{t:"The Special One",x:"Out of all the things that make this celebration beautiful, creating this little surprise for you is one of my favourite parts.",c:"#b66bff"}];
+/* ===== END EDIT ===== */
+
+const $=s=>document.querySelector(s),rnd=(a,b)=>a+Math.random()*(b-a),pick=a=>a[Math.random()*a.length|0];
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const COL=["#FFC857","#FF8C38","#F15B85","#16B8A6","#FFF3DE","#b66bff"],HC=["#F15B85","#FF8C38","#FFC857"];
+
+/* particle engine (capped, rAF only while particles exist, pauses when hidden) */
+function FX(c){const x=c.getContext("2d");let ps=[],raf=0;
+ const size=()=>{const d=Math.min(devicePixelRatio||1,2),r=c.getBoundingClientRect();c.width=r.width*d;c.height=r.height*d;x.setTransform(d,0,0,d,0,0)};
+ size();addEventListener("resize",size);
+ const tick=()=>{raf=0;const r=c.getBoundingClientRect();x.clearRect(0,0,r.width,r.height);ps=ps.filter(p=>--p.l>0);
+  for(const p of ps){p.vx*=p.f;p.vy=p.vy*p.f+p.g;p.x+=p.vx;p.y+=p.vy;x.globalAlpha=Math.min(1,p.l/(p.m*.5));x.fillStyle=p.c;
+   if(p.t==="h"){x.font=p.s+"px serif";x.fillText("♥",p.x,p.y)}else if(p.t==="r")x.fillRect(p.x,p.y,p.s,p.s*.6);else{x.beginPath();x.arc(p.x,p.y,p.s,0,6.3);x.fill()}}
+  x.globalAlpha=1;if(ps.length&&!document.hidden)raf=requestAnimationFrame(tick)};
+ document.addEventListener("visibilitychange",()=>{if(!document.hidden&&ps.length&&!raf)raf=requestAnimationFrame(tick)});
+ return{add(a){for(const p of a)if(ps.length<450)ps.push(p);if(!raf)raf=requestAnimationFrame(tick)}}}
+const P=(x,y,vx,vy,c,s=2,l=60,g=.04,t="d",f=.985)=>({x,y,vx,vy,c,s,l,m:l,g,t,f});
+const fx=FX($("#fx")),fw=FX($("#fw"));
+const hearts=(e,x,y,n=7,k=1)=>e.add(Array.from({length:RM?3:n},()=>P(x,y,rnd(-2,2),rnd(-4,-1),pick(HC),rnd(14,22)*k,55,.08,"h",.99)));
+const sparkle=(x,y,n=14)=>fx.add(Array.from({length:RM?4:n},(_,i)=>i%5===4?P(x,y,rnd(-2,2),rnd(-3,-.5),"#FFC857",rnd(9,13),42,.03,"h",.99):P(x,y,rnd(-2.5,2.5),rnd(-2.5,2.5),pick(COL),rnd(1.2,2.6),38,.02)));
+function burst(e,x,y,k){const a=[];
+ if(k===0)for(let i=0;i<36;i++){const t=i/36*6.283;a.push(P(x,y,Math.cos(t)*3.2,Math.sin(t)*3.2,"#FFC857",2.2,70))}
+ if(k===1)for(let i=0;i<44;i++){const t=rnd(0,6.283),s=rnd(1,5);a.push(P(x,y,Math.cos(t)*s,Math.sin(t)*s,pick(COL),2,70))}
+ if(k===2)for(let i=0;i<40;i++){const t=i/40*6.283;a.push(P(x,y,16*Math.sin(t)**3*.22,-(13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t))*.22,i%2?"#F15B85":"#FFC857",2.2,75))}
+ if(k===3)for(let i=0;i<60;i++){const t=i*.45,s=1+i*.06;a.push(P(x,y,Math.cos(t)*s,Math.sin(t)*s,COL[i%6],2,75))}
+ if(k===4)for(let i=0;i<45;i++)a.push(P(x+rnd(-60,60),y-rnd(0,30),rnd(-.4,.4),rnd(.2,1),"#FFC857",2,110,.03));
+ e.add(a)}
+
+/* sound: Web Audio, sine only, gentle, never autoplay */
+let ac,on=false,amb;
+const tone=(f,t=0,d=1.2,v=.05)=>{if(!on)return;ac=ac||new(window.AudioContext||window.webkitAudioContext)();if(ac.state==="suspended")ac.resume();
+ const o=ac.createOscillator(),g=ac.createGain(),s=ac.currentTime+t;o.type="sine";o.frequency.value=f;g.gain.setValueAtTime(0,s);g.gain.linearRampToValueAtTime(v,s+.02);g.gain.exponentialRampToValueAtTime(.0001,s+d);o.connect(g);g.connect(ac.destination);o.start(s);o.stop(s+d+.05)};
+const chime=()=>{tone(784);tone(1175,.12,1,.03)},spk=()=>tone(rnd(1500,2000),0,.25,.02);
+const pad=()=>{[262,330,392].forEach(f=>tone(f,0,5,.012))};
+function setSound(v){on=v;$("#snd").textContent=v?"🔊":"🔇";$("#snd").setAttribute("aria-pressed",v);$("#snd").setAttribute("aria-label",v?"Turn sound off":"Turn sound on");clearInterval(amb);if(v){chime();pad();amb=setInterval(()=>{if(!document.hidden)pad()},6000)}}
+$("#snd").onclick=()=>setSound(!on);
+
+const toast=m=>{const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(toast.h);toast.h=setTimeout(()=>t.classList.remove("on"),3200)};
+
+/* hero decor */
+{const s=$("#sky");for(let i=0;i<12;i++){const p=document.createElement("span");p.className="pt";p.textContent="✿";p.style.cssText=`left:${rnd(0,98)}%;color:${i%2?"#FF8C38":"#FFC857"};font-size:${rnd(14,24)}px;animation-duration:${rnd(10,18)}s;animation-delay:-${rnd(0,16)}s`;s.appendChild(p)}
+ for(let i=0;i<14;i++){const p=document.createElement("span");p.className="st";p.textContent="✦";p.style.cssText=`left:${rnd(2,96)}%;top:${rnd(3,92)}%;font-size:${rnd(8,16)}px;animation-delay:-${rnd(0,3)}s`;s.appendChild(p)}
+ if(RM)s.querySelectorAll(".pt").forEach(p=>p.style.top=rnd(5,90)+"%")}
+$("#go").onclick=e=>{const r=e.currentTarget.getBoundingClientRect();sparkle(r.left+r.width/2,r.top+r.height/2,28);if(!on)setSound(true);else chime();$("#wishes").scrollIntoView({behavior:RM?"auto":"smooth"})};
+
+/* wishes */
+let qi=0,hov=false,touched=0;const qt=$("#qt");
+const showQ=()=>{qt.classList.add("out");setTimeout(()=>{qt.textContent=QUOTES[qi];$("#qn").textContent=`${qi+1} / ${QUOTES.length}`;qt.classList.remove("out")},RM?0:350)};
+const nextQ=()=>{qi=(qi+1)%QUOTES.length;showQ()};
+qt.textContent=QUOTES[0];$("#qn").textContent=`1 / ${QUOTES.length}`;
+const qc=$("#qcard");qc.addEventListener("pointerenter",e=>{if(e.pointerType==="mouse")hov=true});qc.addEventListener("pointerleave",()=>hov=false);
+qc.addEventListener("pointerdown",()=>touched=Date.now());qc.addEventListener("focusin",()=>hov=true);qc.addEventListener("focusout",()=>hov=false);
+setInterval(()=>{if(!hov&&!document.hidden&&Date.now()-touched>8000){nextQ();const r=qt.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)hearts(fx,r.left+r.width/2,r.bottom,2,.7)}},8000);
+$("#nw").onclick=e=>{nextQ();chime()};
+
+/* easter eggs */
+let sc=0;$("#egg1").onclick=e=>{sparkle(e.clientX,e.clientY,8);spk();if(++sc>=3){sc=0;toast("A little reminder: You're amazing, Gokul! ⭐");chime()}};
+$("#egg2").onclick=e=>{hearts(fx,e.clientX,e.clientY,10);toast("Sending a little extra happiness your way! ❤️");chime()};
+$("#egg3").onclick=e=>{sparkle(e.clientX,e.clientY,16);toast("May your light never fade! 🪔");chime()};
+
+/* fireworks */
+const stage=$(".stage"),FM=["Beautiful! ✨","Wow, so bright!","Keep smiling, Gokul!","Love that one! 💜","Pure sparkle!","Another happy moment!"];let cn=0;
+const moment=()=>{$("#cnt").textContent="Happy Moments Created: "+ ++cn;$("#fmsg").textContent=pick(FM)};
+const spot=()=>[rnd(.15,.85)*stage.clientWidth,rnd(.15,.55)*stage.clientHeight];
+document.querySelectorAll(".crk button").forEach(b=>b.onclick=()=>{const[x,y]=spot();burst(fw,x,y,+b.dataset.k);moment();chime();spk()});
+$("#fw").addEventListener("pointerdown",e=>{const r=e.currentTarget.getBoundingClientRect();burst(fw,e.clientX-r.left,e.clientY-r.top,pick([0,1,2,2,3,4]));moment();spk()});
+$("#fin-btn").onclick=()=>{const b=$("#fin");b.textContent="GOKUL, MAY YOUR HAPPINESS NEVER END! ❤️";
+ for(let i=0;i<8;i++)setTimeout(()=>{const[x,y]=spot();burst(fw,x,y,[2,1,2,3,2,0,2,4][i]);hearts(fw,x,y+30,6);chime();moment()},RM?0:i*380);
+ b.classList.add("on");setTimeout(()=>b.classList.remove("on"),5200)};
+
+/* gift */
+let gi=0;const mod=$("#mod"),box=$("#gbox");
+const confetti=()=>{const r=box.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+30;hearts(fx,cx,cy,8,.8);fx.add(Array.from({length:RM?18:80},()=>P(cx,cy,rnd(-5,5),rnd(-10,-3),pick(COL),rnd(5,9),95,.18,"r",.99)))};
+function render(){const f=gi>=5,s=SURPRISES[Math.min(gi,4)];mc=$("#mc");mc.style.setProperty("--ac",s.c);
+ $("#mp").textContent=f?"Complete":`Surprise ${gi+1} of 5`;$("#mt").textContent=f?"ALL FIVE SURPRISES UNLOCKED! ✨":s.t;$("#mx").textContent=f?"Happy Diwali, Gokul! 🪔":s.x;
+ $("#md").innerHTML=SURPRISES.map((_,i)=>`<i class="${i<=Math.min(gi,4)||f?"on":""}"></i>`).join("");
+ $("#mn").style.display=f?"none":"";$("#mn").textContent=gi===4?"UNLOCK FINAL ✨":"NEXT SURPRISE ➜";
+ if(f){confetti();hearts(fx,innerWidth/2,innerHeight*.7,12)}chime()}
+let mc;
+$("#og").onclick=()=>{if(gi>=5)gi=0;box.classList.add("open");confetti();mod.hidden=false;render();$("#mcl").focus()};
+$("#mn").onclick=()=>{gi++;const c=$("#mc");c.style.animation="none";c.offsetWidth;c.style.animation="";render()};
+const closeM=()=>{if(mod.hidden)return;mod.hidden=true;$("#og").textContent=gi>=5?"REPLAY 🎁":"CONTINUE 🎁";$("#og").focus()};
+$("#mcl").onclick=closeM;mod.onclick=e=>{if(e.target===mod)closeM()};addEventListener("keydown",e=>{if(e.key==="Escape")closeM()});
+
+/* letter */
+let typing=0;$("#ol").onclick=()=>{if(typing)return;typing=1;$("#env").classList.add("open");chime();const r=$("#env").getBoundingClientRect();sparkle(r.left+r.width/2,r.top+60,24);
+ setTimeout(()=>{const p=$("#paper");p.style.display="block";p.innerHTML="<span></span><span style='visibility:hidden'></span>";const[a,b]=p.children;b.textContent=LETTER;let i=0;
+  const step=RM?LETTER.length:2,h=setInterval(()=>{i=Math.min(LETTER.length,i+step);a.textContent=LETTER.slice(0,i);b.textContent=LETTER.slice(i);
+   if(i%30<step){const q=p.getBoundingClientRect();sparkle(q.left+rnd(20,q.width-20),q.top+rnd(10,q.height*Math.min(1,i/LETTER.length)),3)}
+   if(i>=LETTER.length){clearInterval(h);p.setAttribute("aria-label",LETTER);b.remove()}},28);
+  p.scrollIntoView({behavior:RM?"auto":"smooth",block:"center"})},RM?0:750)};
+
+/* final reveal (sender name appears only here) */
+{let done=0;new IntersectionObserver((es,o)=>{if(!es[0].isIntersecting||done)return;done=1;o.disconnect();
+ $("#sg").textContent=CONFIG.SENDER.toUpperCase();$("#cr").textContent=`This entire Diwali surprise was lovingly created by ${CONFIG.SENDER}, especially for Gokul. ❤️`;
+ let d=0;document.querySelectorAll(".f").forEach(e=>{const t=d;d+=+e.dataset.w||1100;setTimeout(()=>{e.classList.add("in");if(e.querySelector("#sg")){chime();const r=e.getBoundingClientRect();let n=0;const h=setInterval(()=>{sparkle(r.left+rnd(0,r.width),r.top+rnd(-10,r.height),10);spk();hearts(fx,r.left+r.width/2,r.top,3,.8);if(++n>8)clearInterval(h)},400)}},RM?0:t)})},{threshold:.35}).observe($("#final"))}
+
+/* scroll reveal, share, desktop cursor sparkle */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.15});document.querySelectorAll(".rv").forEach(e=>io.observe(e));
+$("#shr").onclick=async()=>{const d={title:"A Diwali surprise 🪔",text:CONFIG.SHARE,url:location.href};
+ try{if(navigator.share){await navigator.share(d)}else{await navigator.clipboard.writeText(location.href);toast("Link copied! 🔗")}}catch(e){if(e.name!=="AbortError"){try{await navigator.clipboard.writeText(location.href);toast("Link copied! 🔗")}catch{toast("Copy this page's address to share 💜")}}}};
+if(matchMedia("(pointer:fine)").matches&&!RM){let lt=0;addEventListener("pointermove",e=>{const n=performance.now();if(n-lt<70)return;lt=n;fx.add([P(e.clientX,e.clientY,rnd(-.5,.5),rnd(-.5,.5),"#FFC857",1.5,26,.02)])})}
+/* romantic touches */
+const ctr=el=>{const r=el.getBoundingClientRect();return[r.left+r.width/2,r.top+r.height/2]};
+addEventListener("click",e=>{const b=e.target.closest(".btn,.crk button");if(!b)return;const[x,y]=e.detail?[e.clientX,e.clientY]:ctr(b);hearts(fx,x,y,4,.7)});
+const TH=["You are one of those beautiful reasons that make ordinary moments special.","If I could gift you one thing this Diwali, it would be endless reasons to smile.","Some people hold a special place in our hearts without even realizing it.","Among a thousand lights, you are someone I genuinely wish happiness for.","This little surprise carries more feelings than words can express."];
+let ti=0;$("#bh").onclick=e=>{const[x,y]=e.detail?[e.clientX,e.clientY]:ctr(e.currentTarget);hearts(fx,x,y,ti>=TH.length?10:6,.9);chime();
+ if(ti>=TH.length){toast("A thousand hearts, one special person. 💗");return}
+ const c=document.createElement("div");c.className="card";c.textContent=TH[ti++];$("#msgs").appendChild(c);c.scrollIntoView({behavior:RM?"auto":"smooth",block:"nearest"});
+ $("#hc").textContent=ti<TH.length?`${ti} of ${TH.length} · tap again`:"That's everything I wanted to say here. 💗"};
+$("#hero h1").onclick=e=>{toast("Psst... you found a hidden one. You make people's days better, Gokul. 💗");hearts(fx,e.clientX,e.clientY,8,.9)};
+$(".sig").onclick=()=>{toast("Thank you for being exactly who you are. 💗");for(let i=0;i<5;i++)setTimeout(()=>hearts(fx,rnd(.15,.85)*innerWidth,innerHeight*.9,5,.9),RM?0:i*250)};
+if(!RM){for(let i=0;i<9;i++){const h=document.createElement("span");h.className="ph";h.setAttribute("aria-hidden","true");h.textContent="♥";h.style.cssText=`left:${rnd(2,96)}%;font-size:${rnd(12,22)}px;animation-duration:${rnd(16,26)}s;animation-delay:-${rnd(0,24)}s`;document.body.appendChild(h)}
+ const HID=["You're easy to smile about, Gokul. 💗","Somebody is wishing you the happiest Diwali right now. ❤️","Hidden message: you are appreciated more than you know. ✨","Hope you're smiling right now. 💗"];
+ const sh=()=>{if(document.hidden)return;const b=document.createElement("button");b.className="sh";b.textContent="💗";b.setAttribute("aria-label","A floating heart");b.style.left=rnd(8,85)+"%";b.onclick=e=>{hearts(fx,e.clientX,e.clientY,9,.9);toast(pick(HID));b.remove()};b.onanimationend=()=>b.remove();document.body.appendChild(b)};
+ setTimeout(()=>{sh();setInterval(sh,38000)},20000)}
+</script>
+</body>
+</html>
